@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Contact from './components/Contact'
+import ContactList from './components/ContactList'
+
+const contacts = [
+  {id: 1, name: "Barney the Dinosaur"},
+  {id: 2, name: "Patte Labelle"},
+  {id: 3, name: "The Resistance"},
+  {id: 4, name: "Andrew Mcfarland"}
+]
+
 class App extends Component {
   render() {
     return (
@@ -10,9 +20,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <ContactList contacts={contacts}/>
       </div>
     );
   }
