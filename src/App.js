@@ -2,17 +2,36 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Contact from './components/Contact'
-import ContactList from './components/ContactList'
+import axios from 'axios';
 
-const contacts = [
-  {id: 1, name: "Barney the Dinosaur"},
-  {id: 2, name: "Patte Labelle"},
-  {id: 3, name: "The Resistance"},
-  {id: 4, name: "Andrew Mcfarland"}
-]
+import Portfolio from './components/Portfolio'
+import PortfolioList from './components/PortfolioList'
 
 class App extends Component {
+  state = {
+    portfolios: []
+  };
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/portfolios")
+      .then(response => {
+        const newPortfolios = response.data.portfolios.map(c => {
+          return {
+            id: c.id,
+            name: c.name
+          };
+        });
+
+        const newState = Object.assign({}, this.state, {
+          portfolios: newPortfolios
+        });
+
+        this.setState(newState);
+      })
+      .catch(error => console.log(error));
+  }
+
   render() {
     return (
       <div className="App">
@@ -21,7 +40,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
 
-        <ContactList contacts={contacts}/>
+        <PortfolioList portfolios={this.state.portfolios}/>
       </div>
     );
   }

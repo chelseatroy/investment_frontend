@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Contact.css"
+import "./Portfolio.css"
 import PropTypes from "prop-types";
 
-function Contact(props) {
+function Portfolio(props) {
   return (
     <div className="contact">
       <span>{props.name}</span>
@@ -10,8 +10,8 @@ function Contact(props) {
   );
 }
 
-Contact.PropTypes = {
+Portfolio.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-export default Contact;
+export default Portfolio;
