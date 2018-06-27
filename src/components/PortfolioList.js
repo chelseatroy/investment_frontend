@@ -5,7 +5,7 @@ function PortfolioList(props) {
   return(
     <div>
       {props.portfolios.map(c =>
-        <Portfolio key={c.id} name={c.name} />)
+        <Portfolio key={c.id} name={c.name} value={c.value} />)
       }
     </div>
   );

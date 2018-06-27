@@ -4,7 +4,6 @@ import './App.css';
 
 import axios from 'axios';
 
-import Portfolio from './components/Portfolio'
 import PortfolioList from './components/PortfolioList'
 
 class App extends Component {
@@ -19,7 +18,8 @@ class App extends Component {
         const newPortfolios = response.data.portfolios.map(c => {
           return {
             id: c.id,
-            name: c.name
+            name: c.name,
+            value: c.value
           };
         });
 
