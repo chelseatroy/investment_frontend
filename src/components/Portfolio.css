@@ -1,12 +1,12 @@
-.contact {
+.portfolio-box {
   margin: 10px;
   padding: 10px;
   border: 1px solid #bbb;
   background-color: #eee;
 }
 
-.contact span {
+.portfolio-box span {
+  text-align: start;
   font-size: 1.2 em;
-  text-decoration: none;
   color: #333;
 }
